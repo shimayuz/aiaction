@@ -1,0 +1,547 @@
+/* 曼荼羅チャート拡張スタイル */
+.mandala-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 表示モード切り替えボタン */
+.display-mode-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.display-mode-toggle button {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #4361ee;
+  font-size: 1rem;
+}
+
+.display-mode-toggle button.btn-primary {
+  background-color: #4361ee;
+  color: white;
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+}
+
+.display-mode-toggle button.btn-outline-primary {
+  background-color: transparent;
+  color: #4361ee;
+}
+
+.display-mode-toggle button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(67, 97, 238, 0.25);
+}
+
+/* 曼荼羅チャート表示レイアウト */
+.mandala-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .mandala-view-container {
+    flex-direction: row;
+  }
+  
+  .mandala-3x3-view {
+    flex: 0 0 30%;
+  }
+  
+  .mandala-9x9-view {
+    flex: 0 0 70%;
+  }
+}
+
+/* 3x3グリッド */
+.mandala-3x3-view {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.mandala-3x3-view h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.mandala-3x3-view h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  border-radius: 2px;
+}
+
+/* 9x9グリッド */
+.mandala-9x9-view {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.mandala-9x9-view h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.mandala-9x9-view h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  border-radius: 2px;
+}
+
+/* 9x9グリッドのレイアウト */
+.mandala-9x9-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 4px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-height: 800px;
+}
+
+.mandala-9x9-cell {
+  background-color: #f8f9ff;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: 1px solid #e6e9f4;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* 中央の3x3グリッドのスタイル強調 */
+.mandala-9x9-grid .mandala-row:nth-child(n+4):nth-child(-n+6) .mandala-9x9-cell:nth-child(n+4):nth-child(-n+6) {
+  border: 2px solid #3f37c9;
+  box-shadow: 0 0 5px rgba(63, 55, 201, 0.2);
+}
+
+/* 中央エリアの強調 - 別の方法 */
+.mandala-9x9-cell[data-row="3"][data-col="3"],
+.mandala-9x9-cell[data-row="3"][data-col="4"],
+.mandala-9x9-cell[data-row="3"][data-col="5"],
+.mandala-9x9-cell[data-row="4"][data-col="3"],
+.mandala-9x9-cell[data-row="4"][data-col="4"],
+.mandala-9x9-cell[data-row="4"][data-col="5"],
+.mandala-9x9-cell[data-row="5"][data-col="3"],
+.mandala-9x9-cell[data-row="5"][data-col="4"],
+.mandala-9x9-cell[data-row="5"][data-col="5"] {
+  border: 2px solid #3f37c9;
+  box-shadow: 0 0 5px rgba(63, 55, 201, 0.2);
+}
+
+/* サブテーマエリアの強調 */
+.mandala-9x9-cell[data-row="0"][data-col="3"],
+.mandala-9x9-cell[data-row="0"][data-col="4"],
+.mandala-9x9-cell[data-row="0"][data-col="5"],
+.mandala-9x9-cell[data-row="1"][data-col="3"],
+.mandala-9x9-cell[data-row="1"][data-col="4"],
+.mandala-9x9-cell[data-row="1"][data-col="5"],
+.mandala-9x9-cell[data-row="2"][data-col="3"],
+.mandala-9x9-cell[data-row="2"][data-col="4"],
+.mandala-9x9-cell[data-row="2"][data-col="5"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+.mandala-9x9-cell[data-row="0"][data-col="6"],
+.mandala-9x9-cell[data-row="0"][data-col="7"],
+.mandala-9x9-cell[data-row="0"][data-col="8"],
+.mandala-9x9-cell[data-row="1"][data-col="6"],
+.mandala-9x9-cell[data-row="1"][data-col="7"],
+.mandala-9x9-cell[data-row="1"][data-col="8"],
+.mandala-9x9-cell[data-row="2"][data-col="6"],
+.mandala-9x9-cell[data-row="2"][data-col="7"],
+.mandala-9x9-cell[data-row="2"][data-col="8"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* サブテーマエリアの強調 - 残りのエリア */
+/* 右エリア */
+.mandala-9x9-cell[data-row="3"][data-col="6"],
+.mandala-9x9-cell[data-row="3"][data-col="7"],
+.mandala-9x9-cell[data-row="3"][data-col="8"],
+.mandala-9x9-cell[data-row="4"][data-col="6"],
+.mandala-9x9-cell[data-row="4"][data-col="7"],
+.mandala-9x9-cell[data-row="4"][data-col="8"],
+.mandala-9x9-cell[data-row="5"][data-col="6"],
+.mandala-9x9-cell[data-row="5"][data-col="7"],
+.mandala-9x9-cell[data-row="5"][data-col="8"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* 右下エリア */
+.mandala-9x9-cell[data-row="6"][data-col="6"],
+.mandala-9x9-cell[data-row="6"][data-col="7"],
+.mandala-9x9-cell[data-row="6"][data-col="8"],
+.mandala-9x9-cell[data-row="7"][data-col="6"],
+.mandala-9x9-cell[data-row="7"][data-col="7"],
+.mandala-9x9-cell[data-row="7"][data-col="8"],
+.mandala-9x9-cell[data-row="8"][data-col="6"],
+.mandala-9x9-cell[data-row="8"][data-col="7"],
+.mandala-9x9-cell[data-row="8"][data-col="8"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* 下エリア */
+.mandala-9x9-cell[data-row="6"][data-col="3"],
+.mandala-9x9-cell[data-row="6"][data-col="4"],
+.mandala-9x9-cell[data-row="6"][data-col="5"],
+.mandala-9x9-cell[data-row="7"][data-col="3"],
+.mandala-9x9-cell[data-row="7"][data-col="4"],
+.mandala-9x9-cell[data-row="7"][data-col="5"],
+.mandala-9x9-cell[data-row="8"][data-col="3"],
+.mandala-9x9-cell[data-row="8"][data-col="4"],
+.mandala-9x9-cell[data-row="8"][data-col="5"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* 左下エリア */
+.mandala-9x9-cell[data-row="6"][data-col="0"],
+.mandala-9x9-cell[data-row="6"][data-col="1"],
+.mandala-9x9-cell[data-row="6"][data-col="2"],
+.mandala-9x9-cell[data-row="7"][data-col="0"],
+.mandala-9x9-cell[data-row="7"][data-col="1"],
+.mandala-9x9-cell[data-row="7"][data-col="2"],
+.mandala-9x9-cell[data-row="8"][data-col="0"],
+.mandala-9x9-cell[data-row="8"][data-col="1"],
+.mandala-9x9-cell[data-row="8"][data-col="2"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* 左エリア */
+.mandala-9x9-cell[data-row="3"][data-col="0"],
+.mandala-9x9-cell[data-row="3"][data-col="1"],
+.mandala-9x9-cell[data-row="3"][data-col="2"],
+.mandala-9x9-cell[data-row="4"][data-col="0"],
+.mandala-9x9-cell[data-row="4"][data-col="1"],
+.mandala-9x9-cell[data-row="4"][data-col="2"],
+.mandala-9x9-cell[data-row="5"][data-col="0"],
+.mandala-9x9-cell[data-row="5"][data-col="1"],
+.mandala-9x9-cell[data-row="5"][data-col="2"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* 左上エリア */
+.mandala-9x9-cell[data-row="0"][data-col="0"],
+.mandala-9x9-cell[data-row="0"][data-col="1"],
+.mandala-9x9-cell[data-row="0"][data-col="2"],
+.mandala-9x9-cell[data-row="1"][data-col="0"],
+.mandala-9x9-cell[data-row="1"][data-col="1"],
+.mandala-9x9-cell[data-row="1"][data-col="2"],
+.mandala-9x9-cell[data-row="2"][data-col="0"],
+.mandala-9x9-cell[data-row="2"][data-col="1"],
+.mandala-9x9-cell[data-row="2"][data-col="2"] {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* テーマセル */
+.mandala-9x9-cell.theme-cell {
+  background-color: #e6f2ff;
+  font-weight: 600;
+  color: #1a56db;
+  border: 1px solid #b6d4fe;
+}
+
+/* 中心セル */
+.mandala-9x9-cell.center-cell {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+  font-weight: 700;
+  grid-column: span 1;
+  grid-row: span 1;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+  border: none;
+}
+
+/* サブテーマ中心セルのスタイル */
+.mandala-9x9-cell.subtheme-center {
+  background-color: rgba(230, 242, 255, 0.8);
+  font-weight: bold;
+  border: 2px solid #b6d4fe;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(67, 97, 238, 0.1);
+}
+
+/* サブテーマ中心セルのホバー効果 */
+.mandala-9x9-cell.subtheme-center:hover {
+  background-color: #e6f2ff;
+  transform: scale(1.02);
+}
+
+/* テーマ別のサブテーマ中心セルのスタイル */
+.mandala-9x9-cell.theme-1.subtheme-center {
+  border-color: #4361ee;
+}
+
+.mandala-9x9-cell.theme-2.subtheme-center {
+  border-color: #3a0ca3;
+}
+
+.mandala-9x9-cell.theme-3.subtheme-center {
+  border-color: #7209b7;
+}
+
+.mandala-9x9-cell.theme-4.subtheme-center {
+  border-color: #f72585;
+}
+
+.mandala-9x9-cell.theme-5.subtheme-center {
+  border-color: #4cc9f0;
+}
+
+.mandala-9x9-cell.theme-6.subtheme-center {
+  border-color: #4895ef;
+}
+
+.mandala-9x9-cell.theme-7.subtheme-center {
+  border-color: #560bad;
+}
+
+.mandala-9x9-cell.theme-8.subtheme-center {
+  border-color: #f77f00;
+}
+
+/* テーマ1のサブゴール */
+.mandala-9x9-cell.theme-1-subgoal {
+  background-color: #fff8e6;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+/* テーマ2のサブゴール */
+.mandala-9x9-cell.theme-2-subgoal {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* テーマ3のサブゴール */
+.mandala-9x9-cell.theme-3-subgoal {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+/* テーマ4のサブゴール */
+.mandala-9x9-cell.theme-4-subgoal {
+  background-color: #fdf2f8;
+  color: #9d174d;
+  border: 1px solid #fbcfe8;
+}
+
+/* テーマ5のサブゴール */
+.mandala-9x9-cell.theme-5-subgoal {
+  background-color: #f5f3ff;
+  color: #5b21b6;
+  border: 1px solid #ddd6fe;
+}
+
+/* テーマ6のサブゴール */
+.mandala-9x9-cell.theme-6-subgoal {
+  background-color: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+}
+
+/* テーマ7のサブゴール */
+.mandala-9x9-cell.theme-7-subgoal {
+  background-color: #f0f9ff;
+  color: #0c4a6e;
+  border: 1px solid #bae6fd;
+}
+
+/* テーマ8のサブゴール */
+.mandala-9x9-cell.theme-8-subgoal {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.mandala-9x9-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+}
+
+/* アニメーション */
+@keyframes expandGrid {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mandala-9x9-grid {
+  animation: expandGrid 0.5s ease-out forwards;
+}
+
+.mandala-9x9-cell {
+  animation: fadeIn 0.3s ease forwards;
+  animation-delay: calc(0.01s * var(--index, 0));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .mandala-view-container {
+    flex-direction: column;
+  }
+  
+  .mandala-9x9-cell {
+    font-size: 0.7rem;
+    padding: 4px;
+  }
+  
+  .display-mode-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .display-mode-toggle button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* タブレット対応 */
+@media (min-width: 769px) and (max-width: 991px) {
+  .mandala-9x9-cell {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+}
+
+/* 拡大表示モーダル */
+.mandala-cell-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.mandala-cell-modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mandala-cell-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.mandala-cell-modal-close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.mandala-cell-modal-title {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4361ee;
+}
+
+.mandala-cell-modal-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}

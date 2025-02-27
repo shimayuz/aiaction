@@ -1,0 +1,362 @@
+.mandala-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  max-width: 900px;
+}
+
+.mandala-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.mandala-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  border-radius: 2px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  border-radius: 2px;
+}
+
+.text-success {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.mandala-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.mandala-cell {
+  background-color: #f8f9ff;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.mandala-cell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mandala-cell.center {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.2);
+}
+
+.mandala-cell.center::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.mandala-cell.center:hover::before {
+  opacity: 1;
+}
+
+.mandala-cell textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+  border: none;
+  background: transparent;
+  resize: none;
+  text-align: center;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1rem;
+  padding: 0;
+  outline: none;
+}
+
+.mandala-cell.center textarea {
+  color: white;
+  font-weight: 600;
+}
+
+.mandala-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #4361ee, #4895ef);
+  color: white;
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #6c757d, #495057);
+  color: white;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: #4361ee;
+  border: 2px solid #4361ee;
+}
+
+.mandala-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mandala-form {
+  max-width: 100%;
+  margin: 0 auto 30px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.mandala-form:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+}
+
+.form-title {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group .form-control {
+  flex: 1;
+}
+
+.btn-example {
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  outline: none;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.form-actions .btn {
+  min-width: 200px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mandala-container {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.mandala-cell {
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.05s * var(--index, 0));
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .mandala-title {
+    font-size: 2rem;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .mandala-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mandala-title {
+    font-size: 1.8rem;
+  }
+  
+  .mandala-grid {
+    gap: 10px;
+  }
+  
+  .mandala-cell {
+    padding: 15px;
+    min-height: 100px;
+  }
+}

@@ -1,0 +1,409 @@
+.mandala-grid-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 中心目標のスタイル */
+.mandala-center-goal {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mandala-center-goal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.mandala-center-goal:hover::before {
+  opacity: 1;
+}
+
+.mandala-center-goal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(67, 97, 238, 0.3);
+}
+
+.mandala-center-goal h2 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mandala-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* 8つのテーマのグリッド */
+.mandala-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* テーマのスタイル */
+.mandala-theme {
+  background: linear-gradient(135deg, #4cc9f0, #4895ef);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(76, 201, 240, 0.15);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mandala-theme::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' opacity='0.7'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.mandala-theme.expanded::after {
+  transform: rotate(180deg);
+}
+
+.mandala-theme:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(76, 201, 240, 0.25);
+}
+
+.theme-title {
+  margin: 0;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 展開されたテーマのスタイル */
+.mandala-theme.expanded {
+  grid-column: span 2;
+  grid-row: span 2;
+  z-index: 10;
+  background: linear-gradient(135deg, #4895ef, #3a0ca3);
+  justify-content: flex-start;
+}
+
+/* サブゴールのグリッド */
+.theme-subgoals {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.subgoals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* サブゴールのスタイル */
+.subgoal-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subgoal-item:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.subgoal-number {
+  background-color: white;
+  color: #4895ef;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-right: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subgoal-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* 詳細表示のスタイル */
+.mandala-details {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.mandala-details h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #4361ee;
+  padding-bottom: 12px;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mandala-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.center-goal-detail {
+  background-color: #f8f9ff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid #4361ee;
+  transition: all 0.3s ease;
+}
+
+.center-goal-detail:hover {
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+}
+
+.center-goal-detail h4 {
+  margin-top: 0;
+  color: #4361ee;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.themes-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.theme-detail {
+  background-color: #f8f9ff;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid #4cc9f0;
+  transition: all 0.3s ease;
+}
+
+.theme-detail:hover {
+  box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);
+}
+
+.theme-detail h4 {
+  margin-top: 0;
+  color: #4895ef;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subgoals-list {
+  padding-left: 25px;
+  margin: 15px 0 0 0;
+}
+
+.subgoals-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+  line-height: 1.5;
+}
+
+.subgoals-list li::marker {
+  color: #4cc9f0;
+  font-weight: bold;
+}
+
+/* エラー表示 */
+.mandala-error {
+  color: #dc3545;
+  text-align: center;
+  padding: 25px;
+  background-color: #fff8f8;
+  border-radius: 12px;
+  margin: 30px 0;
+  border: 1px solid #ffdddd;
+  font-weight: 500;
+}
+
+/* 表示モード切り替えボタン */
+.display-mode-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.display-mode-toggle button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid #4361ee;
+}
+
+.display-mode-toggle button.btn-primary {
+  background-color: #4361ee;
+  color: white;
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+}
+
+.display-mode-toggle button.btn-outline-primary {
+  background-color: transparent;
+  color: #4361ee;
+}
+
+.display-mode-toggle button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(67, 97, 238, 0.25);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 992px) {
+  .mandala-themes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .mandala-theme.expanded {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .themes-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .mandala-center-goal h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mandala-center-goal {
+    padding: 25px;
+  }
+  
+  .mandala-theme {
+    min-height: 100px;
+    padding: 15px;
+  }
+  
+  .theme-title {
+    font-size: 1.1rem;
+  }
+  
+  .display-mode-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .display-mode-toggle button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mandala-themes-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 15px;
+  }
+  
+  .mandala-theme.expanded {
+    grid-column: span 1;
+    grid-row: span 3;
+  }
+  
+  .subgoals-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mandala-center-goal h2 {
+    font-size: 1.5rem;
+  }
+  
+  .mandala-details {
+    padding: 20px;
+  }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mandala-center-goal {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+.mandala-theme {
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.1s * var(--index, 0));
+}
+
+.subgoal-item {
+  animation: fadeIn 0.3s ease forwards;
+  animation-delay: calc(0.05s * var(--index, 0));
+}

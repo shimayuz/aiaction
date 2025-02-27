@@ -1,0 +1,109 @@
+/* マンダラチャートページのスタイル */
+.mandala-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mandala-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.mandala-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.mandala-view-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mandala-3x3-view,
+.mandala-9x9-view {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mandala-3x3-view h3,
+.mandala-9x9-view h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* ボタングループのスタイル */
+.mandala-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* ダウンロードボタンのスタイル */
+.btn-download {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ダウンロードアイコン */
+.download-icon {
+  font-size: 18px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .mandala-view-container {
+    flex-direction: column;
+  }
+  
+  .mandala-3x3-view,
+  .mandala-9x9-view {
+    width: 100%;
+  }
+  
+  .mandala-action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-download {
+    width: 100%;
+    justify-content: center;
+  }
+}
